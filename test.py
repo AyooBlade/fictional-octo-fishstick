@@ -40,7 +40,7 @@ def login():
     
     
     
-
+y=2
     
 username = register()
 print(f"Üdvözöljük, {username}!")
@@ -51,4 +51,4 @@ if asd == "register":
 elif asd == "login":
     login()
 else:
-    print("Helytelen akció! Kérjük, adja meg a 'register' vagy 'login' parancsot.")
+    print("Helytelen akció! Kérjük, adja meg a 'register' vagy 'login' parancsot.") #szarosgergfdgdgsfhggdf
