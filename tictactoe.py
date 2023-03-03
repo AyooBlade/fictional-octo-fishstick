@@ -3,6 +3,8 @@ map=["-","-","-",
      "-","-","-",
      "-","-","-",]
 
+#SEX
+
 CurrentPlayer='X'
 winner=None
 Gamerunning=True
