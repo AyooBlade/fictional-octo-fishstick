@@ -1,4 +1,5 @@
 
+
 map=["-","-","-",
      "-","-","-",
      "-","-","-",]
@@ -11,6 +12,7 @@ Gamerunning=True
 
 # Print the map
 def printmap(map):
+    '''Kiírja a játékteret'''
     print (map[0]+ " | " + map[1] + " | " + map[2])
     print("---------")
     print (map[3]+ " | " + map[4] + " | " + map[5])
@@ -18,7 +20,7 @@ def printmap(map):
     print (map[6]+ " | " + map[7] + " | " + map[8])
 
 def playerinput(map):
-    
+    '''Bekéri hova szeretne lépni a játékos'''
     playermove = int(input("Hova szeretnél lépni? "))
     if playermove>=0 and playermove<=9 and map[playermove-1]=="-":
         map[playermove-1]=CurrentPlayer
@@ -27,6 +29,7 @@ def playerinput(map):
         playerinput(map)
         
 def check_x(map):
+    '''ellenőrzi hogy x tengelyen nyert-e valaki'''
     global winner
     if map[0] == map[1] == map[2] and map[1] != "-":
         winner = map[0]
@@ -39,6 +42,7 @@ def check_x(map):
         return 
 
 def check_y(map):
+    '''ellenőrzi hogy y tengelyen nyert-e valaki'''
     global winner
     if map[0] == map[3] == map[6] and map[3] != "-":
         winner = map[0]
@@ -46,11 +50,12 @@ def check_y(map):
     elif map[1] == map[4] == map[7] and map[1] != "-":
         winner = map[1]
         return 
-    elif map[2] == map[5] == map[7] and map[7] != "-":
+    elif map[2] == map[5] == map[8] and map[8] != "-":
         winner = map[2]
         return 
     
 def checkdiag(map):
+    '''Ellenőrzi valaki nyert-e átlóba'''
     global winner
     if map[0] == map[4] == map[8] and map[4] != "-":
         winner = map[0]
@@ -60,6 +65,7 @@ def checkdiag(map):
         return 
 
 def checktie(map):
+    '''ellenőrzi hogy döntetlen lett-e a játék'''
     global Gamerunning
     if "-" not in map:
         printmap(map)
@@ -67,6 +73,7 @@ def checktie(map):
         Gamerunning = False
 
 def switchplayer(Cplayer):
+    '''Átvált a másik játékosra'''
     global CurrentPlayer
     if Cplayer == 'X':
         CurrentPlayer='O'
@@ -74,6 +81,7 @@ def switchplayer(Cplayer):
         CurrentPlayer='X'
 
 def end(winner):
+    '''kiírja ki nyert'''
     if winner =='X':
         print (f"A nyertes az {winner} játékos")
         exit()
@@ -95,5 +103,5 @@ def main():
         switchplayer(CurrentPlayer)
         
 
-
 main()
+
